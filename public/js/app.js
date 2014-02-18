@@ -71,6 +71,8 @@ $(function() {
       buffer.empty();
       socket.emit('request', log.options[log.selectedIndex].value);
     });
+
+window.location.hash && window.location.hash.length > 1 && socket.emit('request', window.location.hash.substr(1));
   });
 
   socket.on('select', function(fileName) {
